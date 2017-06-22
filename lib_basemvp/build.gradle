@@ -105,9 +105,10 @@ if (project.rootProject.findProject('local.properties') != null) {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 }
 bintray {
-    user = isHasFile ? properties.getProperty("bintray.user") : System.getenv("bintray.user")
-    key = isHasFile ? properties.getProperty("bintray.apikey") : System.getenv("bintray.apikey")
-
+//    user = isHasFile ? properties.getProperty("bintray.user") : System.getenv("bintray.user")
+//    key = isHasFile ? properties.getProperty("bintray.apikey") : System.getenv("bintray.apikey")
+    user = "pengdun"
+    key = "58ca6130ab8a8680222ff4c1bf4413e5da3a239e"
     configurations = ['archives']
     pkg {
         repo = "base_mvp"

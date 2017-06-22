@@ -129,93 +129,94 @@ dependencies {
 //}
 
 
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
-
-
-version = "1.0.0"                                                              // #CONFIG# // project version
-
-
-def siteUrl = 'https://github.com/ghhadisi/lib_claim'                        // #CONFIG# // project homepage
-def gitUrl = 'https://github.com/ghhadisi/lib_claim.git'                     // #CONFIG# // project git
-group = "com.ghhadisi"                                                          // #CONFIG# // Maven Group ID for the artifact (pageckage name is ok)
-println 'huangsaisai build gradle mvn2'
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                name 'wodersgroup insurance claim sdk'
-                // #CONFIG# // project title //项目描述
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'pengdun'
-                        // #CONFIG# // your user id (you can write your nickname)
-                        name 'pengdun'
-                        // #CONFIG# // your user name
-                        email 'peng_duns@163.com'
-                        // #CONFIG# // your email
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-//    options.encoding = 'UTF-8'
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-Properties properties = new Properties()
-boolean isHasFile = false
-
-if (project.rootProject.findProject('local.properties') != null) {
-    isHasFile = true
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-}
-bintray {
-    user = isHasFile ? properties.getProperty("bintray.user") : System.getenv("bintray.user")
-    key = isHasFile ? properties.getProperty("bintray.apikey") : System.getenv("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = "test1"
-        name = "lib_claim"
-        // #CONFIG# project name in jcenter  //发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+//
+//
+//version = "1.0.0"                                                              // #CONFIG# // project version
+//
+//
+//def siteUrl = 'https://github.com/ghhadisi/lib_claim'                        // #CONFIG# // project homepage
+//def gitUrl = 'https://github.com/ghhadisi/lib_claim.git'                     // #CONFIG# // project git
+//group = "com.ghhadisi"                                                          // #CONFIG# // Maven Group ID for the artifact (pageckage name is ok)
+//println 'huangsaisai build gradle mvn2'
+//install {
+//    repositories.mavenInstaller {
+//        // This generates POM.xml with proper parameters
+//        pom {
+//            project {
+//                packaging 'aar'
+//                name 'wodersgroup insurance claim sdk'
+//                // #CONFIG# // project title //项目描述
+//                url siteUrl
+//                // Set your license
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'pengdun'
+//                        // #CONFIG# // your user id (you can write your nickname)
+//                        name 'pengdun'
+//                        // #CONFIG# // your user name
+//                        email 'peng_duns@163.com'
+//                        // #CONFIG# // your email
+//                    }
+//                }
+//                scm {
+//                    connection gitUrl
+//                    developerConnection gitUrl
+//                    url siteUrl
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+////    options.encoding = 'UTF-8'
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
+//
+//Properties properties = new Properties()
+//boolean isHasFile = false
+//
+//if (project.rootProject.findProject('local.properties') != null) {
+//    isHasFile = true
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//}
+//bintray {
+////    user = isHasFile ? properties.getProperty("bintray.user") : System.getenv("bintray.user")
+////    key = isHasFile ? properties.getProperty("bintray.apikey") : System.getenv("bintray.apikey")
+//    user = "pengdun"
+//    key = "58ca6130ab8a8680222ff4c1bf4413e5da3a239e"
+//    configurations = ['archives']
+//    pkg {
+//        repo = "test1"
+//        name = "lib_claim"
+//        // #CONFIG# project name in jcenter  //发布到JCenter上的项目名字
+//        websiteUrl = siteUrl
+//        vcsUrl = gitUrl
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//    }
+//}
