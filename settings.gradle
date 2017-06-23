@@ -1,1 +1,1 @@
-include ':app', ':lib_test', ':lib_basemvp'
+include ':app', ':lib_test', ':lib_basemvp', ':lib_imageloader'
